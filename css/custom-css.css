@@ -1,0 +1,121 @@
+body {
+    padding-top: 20px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+}
+
+footer {
+    margin: 50px 0;
+}
+
+.hero-banner{
+    background-image: url("../images/hero.jpg");
+    height: 80vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.page-header {
+    text-align: right;
+    color:#fff;
+}
+
+.login-form {
+    display: none;
+}
+
+.nav .fa{
+    font-weight:300;
+    font-size: 18px;
+}
+
+#playerSearch {
+    background-color: #f7f7f9;
+}
+
+.card {
+    border:none;
+    text-align: center;
+    padding:0;
+}
+
+.card .list-group-flush{
+    border: 1px solid rgba(0,0,0,.125);
+}
+
+.filter-img {
+    width:25%;
+}
+
+.attribute-list{
+    flex-grow:2;
+}
+
+.player-headings{
+    min-width:15%;
+}
+
+.img {
+    float: left;
+    width: 100%;
+    height: 175px;
+    object-fit: fill;
+}
+
+.img-slick {
+    float: left;
+    width: 100%;
+    height: 250px;
+    object-fit: fill;
+}
+
+.flex-center{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.border {
+    border:3px solid #343a40!important
+}
+
+.filter-border {
+    border-left: 3px solid #343a40!important;
+}
+
+.filter-border-right{
+    border-right: 3px solid #343a40!important;
+}
+
+.filter-border-top{
+    border-top: 3px solid #343a40!important;
+}
+
+.filter-border-bottom{
+    border-bottom: 3px solid #343a40!important;
+}
+
+.filter-btn{
+    width:50%;
+}
+.filter-btn-light{
+    background-color:rgba(0,0,0,.3);
+}
+
+.search-heading {
+    margin-top:0.5rem;
+    text-align: center;
+}
+
+.fa-arrow-right {
+    margin-left:50px;
+}
+
+.filter-box {
+    padding:25px;
+    width:50%;
+    margin: 0 auto;
+}
+
+.custom-select{
+    width:56%;
+}
