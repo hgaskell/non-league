@@ -2,18 +2,9 @@
 <?php include "includes/db.php"; ?>
 <?php include "includes/navigation.php"; ?>
 
-    <!-- Page Content -->
-    <div class="container">
+<div class="player-page">
 
-        <div class="row">
-
-            <!-- Blog Entries Column -->
-            <div class="col-md-8">
-
-                <h1 class="page-header">Non League Promotors</h1>
-
-                <!-- First Blog Post -->
-                <?php
+<?php
 if (isset($_GET['p_id']))
 {
     $this_player_id = $_GET['p_id'];
@@ -34,28 +25,40 @@ while ($row = mysqli_fetch_assoc($select_all_players_query))
     $player_height = $row['player_height'];
     $player_preferred_foot = $row['player_preferred_foot'];
 ?>
-                <h2>
-                    <a href="#"><?php echo $player_name ?></a>
-                </h2>
-                <img class="img-responsive" src="images/<?php echo $player_image ?>">
-                <ul class="list-unstyled">
-                    <li>DOB: <?php echo $player_dob ?></li>
-                    <li>Position: <?php echo $player_position ?></li>
-                    <li>Region: <?php echo $player_region ?></li>
-                    <li>Height: <?php echo $player_height ?></li>
-                    <li>Preferred Foot: <?php echo $player_preferred_foot ?></li>
-                </ul>
-                <hr>
-                <p><?php echo $player_bio ?></p>
-                <a class="btn btn-primary" href="<?php echo $player_email ?>">Contact<span class="glyphicon glyphicon-chevron-right"></span></a>
 
-                <hr>
+    <div class="player-heading">
+        <h2>
+            <a class="player-heading-link" href="#"><?php echo $player_name ?></a>
+        </h2>
+    </div>
+    <div class="player-image">
+        <img class="" src="images/<?php echo $player_image ?>">
+    </div>
+
+    <div class="player-info">
+        <ul>
+            <li>Age <span><?php echo getAge($player_dob); ?></span> <i class="fas fa-birthday-cake"></i></li>
+            <li>Position <span><?php echo $player_position ?></span> <i class="fas fa-vector-square"></i></li>
+            <li>Region <span><?php echo $player_region ?></span> <i class="fas fa-map-pin"></i></li>
+            <li>Height <span><?php echo $player_height ?>cm</span> <i class="fas fa-ruler-vertical"></i></li>
+            <li>Preferred Foot <span><?php echo $player_preferred_foot ?></span> <i class="fas fa-shoe-prints"></i></li>
+        </ul>
+    </div>
+
+    <div class="player-bio">
+        <h4>bio</h4>
+        <p><?php echo $player_bio ?></p>
+    </div>
+
+
+    
+    
                 
-                <?php
+<?php
 } ?>
 
 
-                <?php
+<?php
 if (isset($_POST['create_message']))
 {
     $this_player_id = $_GET['p_id'];
@@ -68,32 +71,23 @@ if (isset($_POST['create_message']))
 
     $create_message_query = mysqli_query($connection, $query);
     //checkQuery($query);
-    
 }
 ?>
-                <!-- Message Form -->
-                <div class="well">
-                    <h4>Get in touch</h4>
-                    <form role="form" action="" method="post">
-                        <div class="form-group">
-                            <label for="sender">Name</label>
-                            <input type="text" name="message_sender" class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" name="message_email" class="form-control">
-                        </div>
-                        <label for="message">Message</label>
-                        <div class="form-group">
-                            <textarea class="form-control" name="message_content" rows="3"></textarea>
-                        </div>
-                        <button type="submit" name="create_message" class="btn btn-primary">Submit</button>
-                    </form>
-                </div>
+
+<div class="player-form">
+        <h4>Get in touch</h4>
+        <form role="form" action="" method="post">
+            <div class="player-form-container">
+                <input type="text" name="message_sender" class="player-form-input" placeholder="Name">
             </div>
-        </div>
-        <!-- /.row -->
-
-        <hr>
-
+            <div class="player-form-container">
+                <input type="email" name="message_email" class="player-form-input" placeholder="Email">
+            </div>
+            <div class="player-form-container">
+                <textarea class="player-form-input" name="message_content" rows="3" placeholder="Message"></textarea>
+            </div>
+            <button type="submit" name="create_message" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+    </div>
 <?php include "includes/footer.php"; ?>

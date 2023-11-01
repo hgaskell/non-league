@@ -4,25 +4,23 @@
 if (!isset($_SESSION['user_id']))
 {
     echo '
-<div class="well d-flex justify-content-end">
-    
-    <form action="includes/login.php" method="post">
-    <a href="#" id="showLogin">Login</a>
-        <div class="login-form position-absolute">
-            <div class="form-group">
-                <input name="username" type="text" class="form-control" placeholder="Username">
+<div>
+    <form class="account-section" action="includes/login.php" method="post">
+    <a class="dropdown-toggle" id="showLogin">Login<i class="fas fa-chevron-down"></i></a></a>
+        <div class="dropdown-menu login-menu">
+            <div class="username-input">
+                <input name="username" type="text" class="" placeholder="Username">
             </div>
-            <div class="input-group">
-                <input name="password" type="password" class="form-control" placeholder="Password">
-                <span class="input-group-btn">
-                    <button name="login" class="btn btn-primary" type="submit">
+            <div class="password-input">
+                <input name="password" type="password" class="" placeholder="Password">
+                <span class="">
+                    <button name="login" class="btn-small" type="submit">
                         Login
                     </button>
                 </span>
             </div>
         </div>
     </form>
-    <span class="px-1">/</span>
     <a href="registration.php">Create an Account</a>
 </div>';
 }

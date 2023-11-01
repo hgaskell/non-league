@@ -13,8 +13,5 @@ foreach ($db as $key => $value)
 
 $connection = mysqli_connect($db["db_host"], $db["db_user"], $db["db_pass"], $db["db_name"]);
 
-// if($connection){
-//     echo 'we are conncected!';
-// }
 
 ?>

@@ -16,15 +16,19 @@
     <title>Non League Promotors</title>
     
     <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- <link href="css/bootstrap.min.css" rel="stylesheet"> -->
 
     <!-- Custom CSS -->
-    <link href="css/custom-css.css" rel="stylesheet">
+    <!-- <link href="css/custom-css.css" rel="stylesheet"> -->
+
+    <link href="css/css.scss" rel="stylesheet">
 
     <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
     <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
 
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
 
 </head>
 
-<body>
+<body class="">

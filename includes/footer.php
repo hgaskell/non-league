@@ -1,16 +1,17 @@
-<!-- Footer -->
-<footer>
-    <div class="row">
-        <div class="col-lg-12">
-            <p>Copyright &copy; Your Website 2022</p>
-        </div>
-        <!-- /.col-lg-12 -->
-    </div>
-    <!-- /.row -->
+<footer class="footer">
+    <ul class="nav">
+        <li class="nav__item"><a href="#" class="nav__link">About us</a></li>
+        <li class="nav__item"><a href="#" class="nav__link">Get in touch</a></li>
+        <li class="nav__item"><a href="#" class="nav__link">Terms & Conditions</a></li>
+        <li class="nav__item"><a href="#" class="nav__link">Sign up</a></li>
+        <li class="nav__item"><a href="#" class="nav__link">Come work with us</a></li>
+    </ul>
+    <p class="copyright">
+        © Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit, totam repudiandae. Excepturi officia optio, in, laboriosam veniam aliquid maxime quam porro beatae itaque cumque fuga quod natus iure quasi perferendis.
+    </p>
 </footer>
 
 </div>
-<!-- /.container -->
 
 <!-- jQuery -->
 <script src="js/jquery.js"></script>

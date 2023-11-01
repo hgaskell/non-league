@@ -3,14 +3,50 @@
 <?php include "includes/navigation.php"; ?>
 
 
-    <div class="container">
-        <div class="row">
-            <div class="col-md-8">
-                <h1 class="page-header">Non League Promotors</h1>
+    <div class="filter-heading">
+        <h2>
+            Available Players
+        </h2>
+    </div>
+
+    <div class="filters">
+
+    <div class="sidebar-filters">
+        <form class="filter-row" action="filter.php" method="get">
+            <div class="filter-input">
+                <div class="filter-label heading-4" >
+                    <label for="filter_position">Position</label>
+                </div>
+                
+                <select class="filter-dropdown" name="filter_position">
+                    <option value="">Any</option>
+                    <option value="Goalkeeper">Goalkeeper</option>
+                    <option value="Defender">Defender</option>
+                    <option value="Midfielder">Midfielder</option>
+                    <option value="Attacker">Attacker</option>
+                </select>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12 d-flex">
+
+            <div class="filter-input">
+                <div class="filter-label heading-4" >
+                    <label for="filter_region">Region</label>
+                </div>
+                
+                <select class="filter-dropdown" name="filter_region">
+                    <option value="">Any</option>
+                    <option value="England">England</option>
+                    <option value="Wales">Wales</option>
+                    <option value="Scotland">Scotland</option>
+                    <option value="Northern Ireland">Northern Ireland</option>
+                </select>
+            </div>
+            <div class="filter-btn">
+                <input class="btn btn-primary" type="submit" value="Reset Filters">
+            </div>
+        </form>
+    </div>
+    <div class="players">
+
                 <?php
 if (isset($_POST['search']))
 {
@@ -47,32 +83,32 @@ if (isset($_POST['search']))
             $player_height = $row['player_height'];
             $player_preferred_foot = $row['player_preferred_foot'];
 ?>
-                <div class="card mr-2">
-                    <h2 class="card-title">
-                        <a href="post.php?p_id=<?php echo $player_id; ?>"><?php echo $player_name ?></a>
-                    </h2>
-                    <img class="img-responsive card-img-top" src="images/<?php echo $player_image ?>">
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">DOB: <?php echo $player_dob ?></li>
-                        <li class="list-group-item">Position: <?php echo $player_position ?></li>
-                        <li class="list-group-item">Region: <?php echo $player_region ?></li>
-                        <li class="list-group-item">Height: <?php echo $player_height ?></li>
-                        <li class="list-group-item">Preferred Foot: <?php echo $player_preferred_foot ?></li>
-                    </ul>
-                    <hr>
-                    <p class="card-text"><?php echo $player_bio ?></p>
-                    <a class="btn btn-primary" href="<?php echo $player_email ?>">Contact<span class="glyphicon glyphicon-chevron-right"></span></a>
-                </div>
-                <?php
-        }
+    <div class="player">
+        <img src="images/<?php echo $player_image ?>" alt="Player Image" class="player__img">
+        <h5 class="player__name"><?php echo $player_name ?></h5>
+        <div class="player__location">
+            <p>Region: <?php echo $player_region ?></p>
+        </div>
+        <div class="player__age">
+            <p>Age: <?php echo getAge($player_dob); ?></p>
+        </div>
+        <div class="player__position">
+            <p>Position: <?php echo $player_position ?></p>
+        </div>
+        <div class="player__height">
+            <p>Height: <?php echo $player_height ?>cm</p>
+        </div>
+        <a class="btn player__btn" href="post.php?p_id=<?php echo $player_id; ?>">Contact player</a>
+    </div>
+    <?php
+        } ?>
+
+    </div>
+
+    <?php
     }
 } ?>
-
-            </div>
-
-        </div>
-        <!-- /.row -->
-
-        <hr>
+    
+</div>
 
 <?php include "includes/footer.php"; ?>

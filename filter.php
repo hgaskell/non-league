@@ -2,16 +2,22 @@
 <?php include "includes/db.php"; ?>
 <?php include "includes/navigation.php"; ?>
 
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-2">
-            <form class="form-inline" action="filter.php" method="get">
-                <div class="row form-group d-flex">
-                    <div class="col-4 d-flex flex-column align-items-center" >
+    <div class="filter-heading">
+        <h2>
+            Available Players
+        </h2>
+    </div>
+
+    <div class="filters">
+
+        <div class="sidebar-filters">
+            <form class="filter-row" action="filter.php" method="get">
+                <div class="filter-input">
+                    <div class="filter-label heading-4" >
                         <label for="filter_position">Position</label>
                     </div>
                     
-                    <select class="col-8 custom-select align-self-center" name="filter_position">
+                    <select class="filter-dropdown" name="filter_position">
                         <option value="">Any</option>
                         <option value="Goalkeeper">Goalkeeper</option>
                         <option value="Defender">Defender</option>
@@ -20,12 +26,12 @@
                     </select>
                 </div>
 
-                <div class="row form-group d-flex mt-2">
-                    <div class="col-4 d-flex flex-column align-items-center" >
+                <div class="filter-input">
+                    <div class="filter-label heading-4" >
                         <label for="filter_region">Region</label>
                     </div>
                     
-                    <select class="col-8 custom-select align-self-center" name="filter_region">
+                    <select class="filter-dropdown" name="filter_region">
                         <option value="">Any</option>
                         <option value="England">England</option>
                         <option value="Wales">Wales</option>
@@ -33,12 +39,12 @@
                         <option value="Northern Ireland">Northern Ireland</option>
                     </select>
                 </div>
-                <div class="form-group">
+                <div class="filter-btn">
                     <input class="btn btn-primary" type="submit" value="Reset Filters">
                 </div>
             </form>
         </div>
-        <div class="col-10">
+        <div class="players">
 <?php
 if (isset($_GET['filter_position']))
 {
@@ -99,41 +105,38 @@ if (isset($_GET['filter_position']))
             $player_preferred_foot = $row['player_preferred_foot'];
 
 ?>
-            <div class="d-flex mb-3 filter-border">
-                <div class="player-headings flex-center filter-border-top filter-border-bottom">
-                    <h5 class="">
-                        <a class="text-decoration-none" href="post.php?p_id=<?php echo $player_id; ?>"><?php echo $player_name ?></a>
-                    </h5>
-                    <div>
-                        <img class="img-responsive img" src="images/<?php echo $player_image ?>">
-                    </div>
-                    
-                </div>
-                <ul class="list-group list-group-flush justify-content-center attribute-list filter-border-bottom">
-                    <li class="list-group-item filter-border-right filter-border-top">Age: <?php echo getAge($player_dob); ?></li>
-                    <li class="list-group-item filter-border-right">Position: <?php echo $player_position ?></li>
-                    <li class="list-group-item filter-border-right">Region: <?php echo $player_region ?></li>
-                    <li class="list-group-item filter-border-right">Height: <?php echo $player_height ?></li>
-                    <li class="list-group-item filter-border-right">Preferred Foot: <?php echo $player_preferred_foot ?></li>
-                </ul>
-                <div class="d-flex align-items-center flex-grow-1 flex-column justify-content-around">
-                    <a class="btn btn-primary filter-btn filter-btn filter-btn-light" href="<?php echo $player_email ?>">Contact</a>
-                    <a class="btn btn-primary filter-btn filter-btn" href="post.php?p_id=<?php echo $player_id; ?>">Profile</a>
-                </div>
-            </div>
+
+    <div class="player">
+        <img src="images/<?php echo $player_image ?>" alt="Player Image" class="player__img">
+        <h5 class="player__name"><?php echo $player_name ?></h5>
+        <div class="player__location">
+            <p>Region: <?php echo $player_region ?></p>
+        </div>
+        <div class="player__age">
+            <p>Age: <?php echo getAge($player_dob); ?></p>
+        </div>
+        <div class="player__position">
+            <p>Position: <?php echo $player_position ?></p>
+        </div>
+        <div class="player__height">
+            <p>Height: <?php echo $player_height ?>cm</p>
+        </div>
+        <a class="btn player__btn" href="post.php?p_id=<?php echo $player_id; ?>">Contact player</a>
+    </div>
+
 
     <?php
         } ?>
-        
+
+    </div>
     <ul class="pagination">
     <?php
         for ($i = 1;$i <= $filter_count;$i++)
         {
             echo "<li class='page-item'><a class='page-link' href='filter.php?filter_position={$filter_position}&filter_region={$filter_region}&page={$i}'>$i</a></li>";
         }
-?>
+    ?>
     </ul>
-    </div>
 
     <?php
     }
